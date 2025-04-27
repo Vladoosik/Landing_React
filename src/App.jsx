@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./app.css";
 import mainImage from "./assets/mainImage.png";
 import experienceImage from "./assets/experienceImg.png";
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const servicesRef = useRef(null);
   const contactRef = useRef(null);
   const experienceRef = useRef(null);
@@ -11,8 +12,38 @@ function App() {
   const advantagesRef = useRef(null);
   const clientsRef = useRef(null);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('nav') && !event.target.closest('.mobile-menu-button')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMenuOpen]);
+
   const scrollToSection = (ref) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+    const headerHeight = document.querySelector('header').offsetHeight;
+    const elementPosition = ref.current.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20; // 20px дополнительный отступ
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+    setIsMenuOpen(false);
   };
 
   return (
@@ -20,8 +51,15 @@ function App() {
       {/* Header */}
       <header>
         <div className="header-inner">
-          <h1 className="logo">Золотое сечение</h1>
-          <nav>
+          <h1 className="logo">ТР Девелопмент</h1>
+          <button
+            className="mobile-menu-button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+          >
+            {isMenuOpen ? '✕' : '☰'}
+          </button>
+          <nav className={isMenuOpen ? 'mobile-menu-open' : ''}>
             <button onClick={() => scrollToSection(whyUsRef)}>Почему мы</button>
             <button onClick={() => scrollToSection(servicesRef)}>Услуги</button>
             <button onClick={() => scrollToSection(experienceRef)}>Опыт</button>
@@ -43,15 +81,15 @@ function App() {
         <div className="hero-content">
           <img src={mainImage} className={"mainImage"} alt="" />
           <div className={"mainContent"}>
-            <p className={"mainTitle"}>«Золотое сечение»</p>
+            <p className={"mainTitle"}>«ТР Девелопмент»</p>
             <p className={"mainTitle"}>
               Антикоррозионная защита, огнезащита, теплоизоляция, монтажные
               работы.
             </p>
             <p className={"mainDescription"}>
-              «Золотое сечение» — ведущая компания в сфере антикоррозионной
+              «ТР Девелопмент» — ведущая компания в сфере антикоррозионной
               защиты, огнезащитной обработки и монтажа тепловой изоляции. Мы
-              предлагаем полный спектр услуг, работая на рынке с 2016 года.
+              предлагаем полный спектр услуг, работая на рынке с 2024 года.
             </p>
             <form
               className="hero-quick-form"

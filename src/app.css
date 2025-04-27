@@ -584,3 +584,323 @@ footer a:hover {
     margin-top: 1.5rem;
   }
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .mainImage {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+  }
+
+  .mainContent {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .mainTitle {
+    font-size: 1.8em;
+    padding: 0 1rem;
+  }
+
+  .mainDescription {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .hero-quick-form {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .expContainer {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .expContent {
+    width: 100%;
+  }
+
+  .expImage {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+  .exp-list {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid,
+  .why-us-grid,
+  .advantages-grid,
+  .clients-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .contact {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .contact-form {
+    padding: 0 1rem;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  nav.mobile-menu-open {
+    display: flex;
+  }
+
+  nav button {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+  }
+
+  nav button:hover {
+    background-color: #f3f4f6;
+  }
+
+  .expTitle {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainTitle {
+    font-size: 1.5em;
+  }
+
+  .mainDescription {
+    font-size: 0.9rem;
+  }
+
+  nav button {
+    font-size: 0.9rem;
+  }
+
+  .service-card,
+  .why-us-card,
+  .adv-card,
+  .client-card {
+    padding: 1rem;
+  }
+}
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #1f2937;
+  padding: 0.5rem;
+  z-index: 100;
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-inner {
+    padding: 1rem 2rem;
+  }
+
+  .hero-content {
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .mainImage {
+    width: 45%;
+    max-height: 70vh;
+  }
+
+  .mainContent {
+    /*width: 55%;*/
+    padding: 2rem;
+  }
+
+  .mainTitle {
+    font-size: 2.2em;
+    padding: 0;
+  }
+
+  .mainDescription {
+    font-size: 1.1rem;
+    padding: 0;
+  }
+
+  .hero-quick-form {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .expContainer {
+    padding: 2rem;
+  }
+
+  .expContent {
+    width: 60%;
+  }
+
+  .expImage {
+    width: 35%;
+    max-height: 600px;
+  }
+
+  .exp-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+
+  .contact {
+    margin: 2rem;
+    padding: 3rem 2rem;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet and Mobile Menu Styles */
+@media (max-width: 1024px) {
+  .mainImage,
+  .expImage {
+    display: none !important;
+  }
+  .mainContent {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 650px;
+  }
+  .expTitle {
+    text-align: center;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.98);
+    z-index: 99;
+    padding: 5rem 2rem 2rem;
+    overflow-y: auto;
+  }
+
+  nav.mobile-menu-open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  nav button {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    background-color: #fff;
+    color: #1f2937;
+    transition: all 0.3s ease;
+  }
+
+  nav button:hover {
+    background-color: #f3f4f6;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-inner {
+    position: relative;
+    z-index: 100;
+  }
+
+  .logo {
+    z-index: 101;
+  }
+}
+
+/* Mobile Specific Adjustments */
+@media (max-width: 768px) {
+  nav {
+    padding: 4rem 1rem 1rem;
+  }
+
+  nav button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
