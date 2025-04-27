@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import {  AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./app.css";
 import mainImage from "./assets/mainImage.png";
 import experienceImage from "./assets/experienceImg.png";
